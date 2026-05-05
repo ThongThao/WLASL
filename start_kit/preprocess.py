@@ -8,12 +8,14 @@ import cv2
 
 import shutil
 
+# def convert_everything_to_mp4():
+#     cmd = 'bash scripts/swf2mp4.sh'
+
+#     os.system(cmd)
+
 def convert_everything_to_mp4():
-    cmd = 'bash scripts/swf2mp4.sh'
-
-    os.system(cmd)
-
-
+    print("Skip SWF conversion")
+    
 def video_to_frames(video_path, size=None):
     """
     video_path -> str, path to video.
@@ -72,7 +74,7 @@ def extract_all_yt_instances(content):
                 
                 yt_identifier = url[-11:]
 
-                src_video_path = os.path.join('raw_videos_mp4', yt_identifier + '.mp4')
+                src_video_path = os.path.join('raw_videos', yt_identifier + '.mp4')
                 dst_video_path = os.path.join('videos', video_id + '.mp4')
 
                 if not os.path.exists(src_video_path):
@@ -102,7 +104,7 @@ def extract_all_yt_instances(content):
             else:
                 cnt += 1
 
-                src_video_path = os.path.join('raw_videos_mp4', video_id + '.mp4')
+                src_video_path = os.path.join('raw_videos', video_id + '.mp4')
                 dst_video_path = os.path.join('videos', video_id + '.mp4')
 
                 if os.path.exists(dst_video_path):
